@@ -27,13 +27,19 @@ body {
   margin: 0;
   padding: 0;
 
-  .available {
-    color: blue;
-  }
+  .product-item {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
-  .unavailable {
-    color: red;
-    text-decoration: line-through;
+    .available {
+      color: blue;
+    }
+
+    .unavailable {
+      color: red;
+      text-decoration: line-through;
+    }
   }
 }
-

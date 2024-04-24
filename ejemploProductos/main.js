@@ -1,5 +1,3 @@
-console.log("Productos");
-
 const products = [
   {
     name: "Ordenador",
@@ -19,6 +17,7 @@ const products = [
 ]
 
 const productList = document.querySelector(".product-list");
+const shoppingCart = document.querySelector(".shopping-cart");
 
 function addProduct(product) {
   const li = document.createElement("li");
@@ -48,13 +47,12 @@ products.forEach((product) => {
 const productItems = document.querySelectorAll(".product-item");
 
 productItems.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    console.log(e.target);
-    // console.log(item);
+  item.addEventListener("click", () => {
+    console.log(item);
+    // productList.removeChild(item);
+    shoppingCart.appendChild(item.cloneNode(true));  
   })
 })
-
-
 
 
 
