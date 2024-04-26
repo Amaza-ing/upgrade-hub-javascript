@@ -8,7 +8,7 @@ console.log("Async js");
 
 // Promesas
 
-const condition = true;
+// const condition = true;
 
 // const myPromise = new Promise((resolve, reject) => {
 //   if (condition) {
@@ -27,13 +27,12 @@ const recipe = [
   "Meterlas al horno",
   "Limpiar la carne",
   "Cocinar la carne en la sartén",
-  "Mezclar la verdua y la carne"
-]
+  "Mezclar la verdua y la carne",
+];
 
 function getRecipeStep(step) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-
       console.log(recipe[step]);
 
       if (recipe[step]) {
@@ -41,8 +40,7 @@ function getRecipeStep(step) {
       } else {
         reject("Ha habido un error");
       }
-
-    }, 1000)
+    }, 1000);
   });
 }
 
@@ -56,29 +54,38 @@ function getRecipeStep(step) {
 //   .then(() => console.log("Buen provecho!"))
 //   .catch((errorMsg) => console.log(errorMsg));
 
-
 // sintaxis async/await
 
-async function getCompleteRecipe() {
-  try {
-    await getRecipeStep(0);
-    await getRecipeStep(1);
-    await getRecipeStep(2);
-    await getRecipeStep(3);
-    await getRecipeStep(4);
-    console.log("Buen provecho!");
-  } catch(errorMsg) {
-    console.log(errorMsg)
-  }
-}
+// async function getCompleteRecipe() {
+//   try {
+//     await getRecipeStep(0);
+//     await getRecipeStep(1);
+//     await getRecipeStep(2);
+//     await getRecipeStep(3);
+//     await getRecipeStep(4);
+//     console.log("Buen provecho!");
+//   } catch(errorMsg) {
+//     console.log(errorMsg)
+//   }
+// }
 
 // getCompleteRecipe();
 
-
 // fetch()
 
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch(() => console.log("Error"))
+// fetch("https://jsonplaceholder.typicode.com/users")
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error))
 
+async function getUsers() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getUsers();
