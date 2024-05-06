@@ -3,6 +3,8 @@ console.log("Memes!");
 const memeList = document.querySelector(".meme-list");
 
 function addMemeItem(meme) {
+  // const { id, name, url } = meme; // destructuring
+
   const li = document.createElement("li");
   li.setAttribute("id", meme.id);
 
@@ -43,10 +45,10 @@ const quantityInput = document.querySelector("#quantity");
 
 memesForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const start = startInput.value;
-  const quantity = quantityInput.value;
+  const start = Number(startInput.value);
+  const quantity = Number(quantityInput.value);
 
-  console.log("start:", start, "quantity:", quantity);
+  // console.log("start:", start, "quantity:", quantity);
   memeList.innerHTML = "";
   getMemes(start, quantity);
 })
@@ -56,6 +58,6 @@ const randomBtn = document.querySelector("#random-btn");
 randomBtn.addEventListener("click", () => {
   const maxNum = 100;
   const randomNumber = Math.floor(Math.random() * maxNum);
-  console.log(randomNumber);
+  // console.log(randomNumber);
   getMemes(randomNumber);
 });
